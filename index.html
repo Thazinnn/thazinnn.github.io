@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thazin</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        background: #050814;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 12% 76%, rgba(255, 111, 42, 0.34), transparent 27%),
+          radial-gradient(circle at 72% 18%, rgba(97, 183, 255, 0.22), transparent 32%),
+          linear-gradient(135deg, #070710 0%, #081527 45%, #08071a 100%);
+      }
+
+      .background {
+        position: fixed;
+        inset: 0;
+        isolation: isolate;
+        background:
+          radial-gradient(circle at 0% 88%, rgba(255, 92, 58, 0.42), transparent 30%),
+          radial-gradient(circle at 96% 12%, rgba(125, 165, 255, 0.26), transparent 34%);
+      }
+
+      .background::before,
+      .background::after {
+        content: "";
+        position: absolute;
+        inset: -22vmax;
+        background-repeat: no-repeat;
+        filter: blur(18px) saturate(145%);
+        mix-blend-mode: screen;
+        opacity: 0.92;
+        transform-origin: center;
+      }
+
+      .background::before {
+        background:
+          radial-gradient(80vmax 15vmax at 7% 66%, transparent 36%, rgba(255, 124, 52, 0.84) 40%, transparent 47%),
+          radial-gradient(92vmax 16vmax at 31% 58%, transparent 33%, rgba(255, 77, 166, 0.85) 37%, transparent 47%),
+          radial-gradient(88vmax 13vmax at 69% 43%, transparent 35%, rgba(255, 73, 194, 0.74) 40%, transparent 49%),
+          radial-gradient(76vmax 13vmax at 94% 38%, transparent 33%, rgba(144, 98, 255, 0.62) 39%, transparent 48%);
+        animation: drift 18s ease-in-out infinite alternate;
+      }
+
+      .background::after {
+        background:
+          radial-gradient(75vmax 11vmax at 4% 74%, transparent 37%, rgba(255, 205, 82, 0.8) 42%, transparent 50%),
+          radial-gradient(91vmax 12vmax at 42% 56%, transparent 35%, rgba(255, 117, 206, 0.58) 40%, transparent 49%),
+          radial-gradient(82vmax 11vmax at 78% 50%, transparent 34%, rgba(190, 109, 255, 0.62) 39%, transparent 48%),
+          radial-gradient(70vmax 10vmax at 99% 20%, transparent 34%, rgba(126, 198, 255, 0.66) 40%, transparent 50%);
+        opacity: 0.72;
+        filter: blur(10px) saturate(165%);
+        animation: float 22s ease-in-out infinite alternate;
+      }
+
+      .wave {
+        position: absolute;
+        left: -14vw;
+        width: 128vw;
+        height: 36vh;
+        border-radius: 50%;
+        opacity: 0.65;
+        filter: blur(9px) saturate(150%);
+        mix-blend-mode: screen;
+      }
+
+      .wave.one {
+        top: 30vh;
+        border-top: 2px solid rgba(255, 127, 64, 0.9);
+        box-shadow:
+          0 -20px 54px rgba(255, 96, 66, 0.28),
+          0 12px 40px rgba(255, 64, 178, 0.38);
+        transform: rotate(-6deg);
+        animation: breathe-one 16s ease-in-out infinite alternate;
+      }
+
+      .wave.two {
+        top: 19vh;
+        border-bottom: 2px solid rgba(126, 193, 255, 0.82);
+        box-shadow:
+          0 -16px 48px rgba(112, 175, 255, 0.2),
+          0 20px 42px rgba(188, 91, 255, 0.3);
+        transform: rotate(10deg);
+        animation: breathe-two 19s ease-in-out infinite alternate;
+      }
+
+      .grain {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: radial-gradient(circle at center, black, transparent 78%);
+        opacity: 0.34;
+      }
+
+      @keyframes drift {
+        from {
+          transform: translate3d(-1.6vw, 0, 0) rotate(-2deg) scale(1);
+        }
+
+        to {
+          transform: translate3d(2vw, -2vh, 0) rotate(2.5deg) scale(1.04);
+        }
+      }
+
+      @keyframes float {
+        from {
+          transform: translate3d(1.5vw, -1vh, 0) rotate(2deg) scale(1.03);
+        }
+
+        to {
+          transform: translate3d(-2vw, 2vh, 0) rotate(-2deg) scale(1);
+        }
+      }
+
+      @keyframes breathe-one {
+        from {
+          transform: translateY(0) rotate(-6deg) scaleX(1);
+        }
+
+        to {
+          transform: translateY(-3vh) rotate(-3deg) scaleX(1.04);
+        }
+      }
+
+      @keyframes breathe-two {
+        from {
+          transform: translateY(0) rotate(10deg) scaleX(1.02);
+        }
+
+        to {
+          transform: translateY(4vh) rotate(7deg) scaleX(0.98);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .background::before,
+        .background::after,
+        .wave {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="background" aria-label="Portfolio background">
+      <div class="wave one"></div>
+      <div class="wave two"></div>
+      <div class="grain"></div>
+    </main>
+  </body>
+</html>
