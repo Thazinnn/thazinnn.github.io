@@ -6,7 +6,7 @@ Current design direction:
 - Dark colourful
 - Expandable
 - Creative
-- Close to minimum
+- Neon 
 
 ## Strict Rules
 
