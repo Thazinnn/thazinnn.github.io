@@ -113,18 +113,19 @@
         position: relative;
         display: block;
         min-height: calc(100vh - 120px);
-        padding-top: 30px;
+        padding-top: 38px;
       }
 
       .portrait-card {
-        position: relative;
-        z-index: 3;
-        width: min(430px, 42vw);
-        margin: 28px 0 0 0;
-        aspect-ratio: 0.86;
+        position: absolute;
+        left: 0;
+        top: 56px;
+        z-index: 2;
+        width: min(460px, 42vw);
+        aspect-ratio: 1.33;
         overflow: hidden;
         background: var(--black);
-        box-shadow: 24px 26px 0 rgba(0, 0, 0, 0.32);
+        box-shadow: 18px 22px 0 rgba(0, 0, 0, 0.24);
       }
 
       .portrait-card::before {
@@ -154,7 +155,7 @@
 
       .headline {
         position: relative;
-        min-height: 560px;
+        min-height: 540px;
         width: min(960px, 100%);
         margin: 0 auto;
         padding-bottom: 40px;
@@ -162,10 +163,10 @@
 
       h1 {
         position: relative;
-        z-index: 2;
-        margin: 0 0 0 84px;
+        z-index: 4;
+        margin: 0 0 0 120px;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(58px, 10.5vw, 138px);
+        font-size: clamp(76px, 13.4vw, 178px);
         line-height: 0.78;
         letter-spacing: 0;
         text-transform: uppercase;
@@ -174,9 +175,9 @@
 
       .outline-stack {
         position: absolute;
-        left: clamp(150px, 24vw, 285px);
+        left: clamp(255px, 31vw, 365px);
         top: 118px;
-        z-index: 1;
+        z-index: 3;
         display: grid;
         gap: 0;
         font-family: Georgia, "Times New Roman", serif;
@@ -219,18 +220,18 @@
         }
 
         .headline {
-          min-height: 640px;
+          min-height: 520px;
           padding-bottom: 46px;
         }
 
         .outline-stack {
-          left: 22vw;
+          left: 27vw;
           top: 98px;
         }
 
         .portrait-card {
-          width: min(430px, 100%);
-          margin: 24px 0 0 0;
+          top: 54px;
+          width: min(420px, 72vw);
         }
 
         .sparkles {
@@ -250,18 +251,23 @@
         }
 
         h1 {
-          margin-left: 36px;
-          font-size: clamp(46px, 16vw, 76px);
+          margin-left: 42px;
+          font-size: clamp(56px, 18vw, 92px);
         }
 
         .outline-stack {
           font-size: clamp(50px, 18vw, 82px);
-          left: 18vw;
+          left: 32vw;
           top: 78px;
         }
 
         .headline {
-          min-height: 560px;
+          min-height: 430px;
+        }
+
+        .portrait-card {
+          top: 46px;
+          width: min(340px, 78vw);
         }
 
       }
