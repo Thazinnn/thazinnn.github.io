@@ -111,18 +111,16 @@
 
       .hero {
         position: relative;
-        display: grid;
-        grid-template-columns: 0.98fr 1.02fr;
-        align-items: end;
+        display: block;
         min-height: calc(100vh - 120px);
         padding-top: 30px;
       }
 
       .portrait-card {
         position: relative;
-        align-self: center;
-        width: min(560px, 45vw);
-        margin-left: 40px;
+        z-index: 3;
+        width: min(430px, 42vw);
+        margin: 28px 0 0 0;
         aspect-ratio: 0.86;
         overflow: hidden;
         background: var(--black);
@@ -157,13 +155,15 @@
       .headline {
         position: relative;
         min-height: 560px;
-        padding-bottom: 74px;
+        width: min(960px, 100%);
+        margin: 0 auto;
+        padding-bottom: 40px;
       }
 
       h1 {
         position: relative;
         z-index: 2;
-        margin: 0;
+        margin: 0 0 0 84px;
         font-family: Georgia, "Times New Roman", serif;
         font-size: clamp(58px, 10.5vw, 138px);
         line-height: 0.78;
@@ -174,7 +174,7 @@
 
       .outline-stack {
         position: absolute;
-        left: clamp(90px, 18vw, 215px);
+        left: clamp(150px, 24vw, 285px);
         top: 118px;
         z-index: 1;
         display: grid;
@@ -214,27 +214,23 @@
         }
 
         .hero {
-          display: flex;
-          flex-direction: column-reverse;
-          align-items: stretch;
           min-height: auto;
           padding-top: 38px;
-          gap: 36px;
         }
 
         .headline {
-          min-height: 430px;
+          min-height: 640px;
           padding-bottom: 46px;
         }
 
         .outline-stack {
-          left: 12vw;
+          left: 22vw;
           top: 98px;
         }
 
         .portrait-card {
           width: min(430px, 100%);
-          margin: 0 0 56px 24px;
+          margin: 24px 0 0 0;
         }
 
         .sparkles {
@@ -254,16 +250,18 @@
         }
 
         h1 {
+          margin-left: 36px;
           font-size: clamp(46px, 16vw, 76px);
         }
 
         .outline-stack {
           font-size: clamp(50px, 18vw, 82px);
+          left: 18vw;
           top: 78px;
         }
 
         .headline {
-          min-height: 350px;
+          min-height: 560px;
         }
 
       }
@@ -285,16 +283,15 @@
         </nav>
 
         <section class="hero">
-          <div class="portrait-card">
-            <img src="assets/night-portrait.png" alt="Night portrait by a parked car">
-          </div>
-
           <div class="headline">
             <div class="sparkles" aria-hidden="true">
               <span class="star">*</span>
               <span class="star">*</span>
             </div>
             <h1>Portfolio</h1>
+            <div class="portrait-card">
+              <img src="assets/night-portrait.png" alt="Night portrait by a parked car">
+            </div>
             <div class="outline-stack" aria-hidden="true">
               <span>Folio</span>
               <span>Folio</span>
