@@ -3,224 +3,423 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Thazin</title>
+    <title>Thazin Portfolio</title>
     <style>
       :root {
         color-scheme: dark;
-        background: #03040d;
+        --green: #1f3d28;
+        --green-dark: #08110c;
+        --black: #030403;
+        --cream: #efe8da;
+        --muted: #b8c3ad;
+        --orange: #d87a2c;
+        --gold: #ffb31a;
+        --lime: #d4ff43;
+        --pink: #ff4bb8;
       }
 
       * {
         box-sizing: border-box;
       }
 
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        overflow: hidden;
+      html {
+        min-height: 100%;
+        background: var(--black);
       }
 
       body {
         min-height: 100vh;
-        background:
-          radial-gradient(circle at 18% 78%, rgba(0, 255, 221, 0.2), transparent 30%),
-          radial-gradient(circle at 84% 18%, rgba(255, 0, 153, 0.22), transparent 32%),
-          linear-gradient(135deg, #03040d 0%, #06051a 46%, #02020a 100%);
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--cream);
+        background: var(--black);
       }
 
-      .background {
-        position: fixed;
-        inset: 0;
-        isolation: isolate;
-        background:
-          radial-gradient(circle at 10% 94%, rgba(0, 255, 242, 0.22), transparent 30%),
-          radial-gradient(circle at 90% 8%, rgba(255, 0, 200, 0.24), transparent 36%),
-          radial-gradient(circle at 58% 54%, rgba(132, 0, 255, 0.16), transparent 42%);
+      a {
+        color: inherit;
+        text-decoration: none;
       }
 
-      .background::before,
-      .background::after {
+      .page {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, var(--green) 0 73%, var(--black) 73% 100%),
+          var(--black);
+      }
+
+      .page::before {
         content: "";
         position: absolute;
-        inset: -22vmax;
-        background-repeat: no-repeat;
-        filter: blur(18px) saturate(180%);
-        mix-blend-mode: screen;
-        opacity: 0.92;
-        transform-origin: center;
-      }
-
-      .background::before {
+        inset: 0;
+        pointer-events: none;
         background:
-          radial-gradient(72vmax 12vmax at 4% 72%, transparent 34%, rgba(0, 255, 224, 0.92) 39%, transparent 48%),
-          radial-gradient(90vmax 14vmax at 32% 58%, transparent 34%, rgba(0, 132, 255, 0.84) 39%, transparent 48%),
-          radial-gradient(86vmax 13vmax at 68% 43%, transparent 35%, rgba(188, 77, 255, 0.86) 40%, transparent 49%),
-          radial-gradient(76vmax 12vmax at 97% 35%, transparent 33%, rgba(255, 0, 170, 0.86) 39%, transparent 48%);
-        animation: drift 18s ease-in-out infinite alternate;
-      }
-
-      .background::after {
-        background:
-          radial-gradient(70vmax 10vmax at 3% 77%, transparent 37%, rgba(181, 255, 0, 0.68) 42%, transparent 50%),
-          radial-gradient(92vmax 11vmax at 42% 55%, transparent 35%, rgba(0, 255, 255, 0.52) 40%, transparent 49%),
-          radial-gradient(82vmax 10vmax at 78% 50%, transparent 34%, rgba(255, 0, 255, 0.64) 39%, transparent 48%),
-          radial-gradient(70vmax 9vmax at 98% 20%, transparent 34%, rgba(82, 255, 178, 0.62) 40%, transparent 50%);
-        opacity: 0.78;
-        filter: blur(9px) saturate(210%);
-        animation: float 22s ease-in-out infinite alternate;
-      }
-
-      .wave {
-        position: absolute;
-        left: -14vw;
-        width: 128vw;
-        height: 36vh;
-        border-radius: 50%;
-        opacity: 0.72;
-        filter: blur(8px) saturate(190%);
+          radial-gradient(circle at 18% 20%, rgba(255, 179, 26, 0.12), transparent 19rem),
+          radial-gradient(circle at 78% 22%, rgba(255, 75, 184, 0.1), transparent 22rem),
+          linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        background-size: auto, auto, 100% 18px;
         mix-blend-mode: screen;
+        opacity: 0.65;
       }
 
-      .wave.one {
-        top: 30vh;
-        border-top: 2px solid rgba(0, 255, 234, 0.95);
-        box-shadow:
-          0 -22px 58px rgba(0, 255, 255, 0.34),
-          0 14px 46px rgba(255, 0, 214, 0.4);
-        transform: rotate(-6deg);
-        animation: breathe-one 16s ease-in-out infinite alternate;
+      .shell {
+        position: relative;
+        z-index: 1;
+        width: min(1120px, calc(100% - 32px));
+        min-height: 100vh;
+        margin: 0 auto;
+        padding: 28px 0 44px;
       }
 
-      .wave.two {
-        top: 19vh;
-        border-bottom: 2px solid rgba(255, 0, 184, 0.92);
-        box-shadow:
-          0 -16px 52px rgba(132, 0, 255, 0.36),
-          0 22px 46px rgba(0, 255, 170, 0.28);
-        transform: rotate(10deg);
-        animation: breathe-two 19s ease-in-out infinite alternate;
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        font-size: 12px;
+        letter-spacing: 0.02em;
       }
 
-      .grain {
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .brand-mark,
+      .star {
+        color: var(--gold);
+        text-shadow: 0 0 18px rgba(255, 179, 26, 0.8);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: clamp(18px, 4vw, 52px);
+        color: #dfe7d8;
+      }
+
+      .nav-links a {
+        opacity: 0.86;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+
+      .button {
+        padding: 10px 18px;
+        border: 1px solid rgba(255, 179, 26, 0.5);
+        border-radius: 999px;
+        background: var(--gold);
+        color: #1c1300;
+        font-size: 12px;
+        font-weight: 800;
+        box-shadow: 0 0 22px rgba(255, 179, 26, 0.28);
+      }
+
+      .hero {
+        position: relative;
+        display: grid;
+        grid-template-columns: 0.96fr 1.04fr;
+        align-items: end;
+        min-height: calc(100vh - 120px);
+        padding-top: 52px;
+      }
+
+      .portrait-card {
+        position: relative;
+        align-self: center;
+        width: min(430px, 100%);
+        margin-left: 54px;
+        aspect-ratio: 0.9;
+        background:
+          linear-gradient(rgba(16, 53, 36, 0.15), rgba(16, 53, 36, 0.42)),
+          radial-gradient(circle at 56% 24%, rgba(255, 221, 149, 0.48), transparent 13%),
+          radial-gradient(ellipse at 55% 38%, rgba(16, 30, 23, 0.98) 0 16%, transparent 17%),
+          radial-gradient(ellipse at 55% 60%, rgba(12, 27, 22, 0.98) 0 27%, transparent 28%),
+          var(--orange);
+        box-shadow: 24px 26px 0 rgba(0, 0, 0, 0.32);
+        filter: saturate(0.82) contrast(1.05);
+      }
+
+      .portrait-card::before {
+        content: "";
         position: absolute;
         inset: 0;
-        z-index: 2;
-        pointer-events: none;
-        background-image:
-          linear-gradient(rgba(0, 255, 255, 0.045) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 0, 200, 0.035) 1px, transparent 1px),
-          radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 1px);
-        background-size: 46px 46px, 46px 46px, 3px 3px;
-        mask-image: radial-gradient(circle at center, black, transparent 80%);
-        opacity: 0.42;
+        background:
+          linear-gradient(90deg, rgba(255, 188, 95, 0.12), transparent 42%),
+          repeating-linear-gradient(90deg, rgba(10, 23, 17, 0.12) 0 2px, transparent 2px 5px);
+        mix-blend-mode: multiply;
       }
 
-      .spark {
+      .portrait-card::after {
+        content: "";
         position: absolute;
-        border-radius: 999px;
-        filter: blur(1px);
-        mix-blend-mode: screen;
+        right: 12%;
+        bottom: 3%;
+        width: 46%;
+        height: 58%;
+        border-radius: 48% 48% 0 0;
+        background: linear-gradient(150deg, rgba(9, 24, 18, 0.98), rgba(18, 54, 39, 0.92));
+        box-shadow: -22px -44px 0 -28px rgba(8, 22, 17, 0.96);
       }
 
-      .spark.cyan {
-        top: 17vh;
-        left: 16vw;
-        width: 18vmax;
-        height: 18vmax;
-        background: radial-gradient(circle, rgba(0, 255, 234, 0.32), transparent 62%);
-        animation: pulse 8s ease-in-out infinite alternate;
+      .bio-note {
+        position: absolute;
+        left: -70px;
+        bottom: 26px;
+        width: 300px;
+        color: #f7ede0;
+        font-size: 12px;
+        line-height: 1.35;
       }
 
-      .spark.pink {
-        right: 8vw;
-        bottom: 14vh;
-        width: 22vmax;
-        height: 22vmax;
-        background: radial-gradient(circle, rgba(255, 0, 184, 0.28), transparent 64%);
-        animation: pulse 10s ease-in-out infinite alternate-reverse;
+      .bio-note strong {
+        display: block;
+        color: #fff6e8;
       }
 
-      .spark.green {
-        left: 45vw;
-        bottom: 6vh;
-        width: 15vmax;
-        height: 15vmax;
-        background: radial-gradient(circle, rgba(176, 255, 0, 0.2), transparent 68%);
-        animation: pulse 12s ease-in-out infinite alternate;
+      .headline {
+        position: relative;
+        min-height: 560px;
+        padding-bottom: 74px;
       }
 
-      @keyframes drift {
-        from {
-          transform: translate3d(-1.6vw, 0, 0) rotate(-2deg) scale(1);
+      h1 {
+        position: relative;
+        z-index: 2;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(72px, 13vw, 178px);
+        line-height: 0.78;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        color: var(--cream);
+      }
+
+      .outline-stack {
+        position: absolute;
+        left: clamp(90px, 18vw, 215px);
+        top: 118px;
+        z-index: 1;
+        display: grid;
+        gap: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(62px, 10vw, 136px);
+        line-height: 0.74;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(212, 255, 67, 0.65);
+        text-shadow: 0 0 20px rgba(212, 255, 67, 0.12);
+        opacity: 0.9;
+      }
+
+      .contact {
+        position: absolute;
+        right: 5%;
+        top: 224px;
+        z-index: 3;
+        color: #f1f4e8;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .contact span {
+        color: var(--muted);
+      }
+
+      .sparkles {
+        position: absolute;
+        left: 10px;
+        top: 180px;
+        display: grid;
+        gap: 24px;
+        font-size: 36px;
+      }
+
+      .scroll {
+        position: absolute;
+        left: 50%;
+        bottom: 8px;
+        display: grid;
+        place-items: center;
+        width: 86px;
+        height: 86px;
+        border-radius: 50%;
+        transform: translateX(-50%);
+        background: var(--gold);
+        color: #2b1a00;
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 1.05;
+        text-align: center;
+        box-shadow: 0 0 30px rgba(255, 179, 26, 0.4);
+      }
+
+      .bottom-line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 8px;
+        background: var(--cream);
+      }
+
+      @media (max-width: 820px) {
+        .page {
+          overflow: auto;
+          background: linear-gradient(180deg, var(--green) 0 78%, var(--black) 78% 100%);
         }
 
-        to {
-          transform: translate3d(2vw, -2vh, 0) rotate(2.5deg) scale(1.04);
+        .shell {
+          width: min(100% - 28px, 620px);
+          padding-top: 22px;
+        }
+
+        .nav {
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          gap: 16px;
+          font-size: 11px;
+        }
+
+        .button {
+          display: none;
+        }
+
+        .hero {
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: stretch;
+          min-height: auto;
+          padding-top: 38px;
+          gap: 36px;
+        }
+
+        .headline {
+          min-height: 430px;
+          padding-bottom: 46px;
+        }
+
+        .outline-stack {
+          left: 12vw;
+          top: 98px;
+        }
+
+        .contact {
+          right: 0;
+          top: 255px;
+          font-size: 14px;
+        }
+
+        .portrait-card {
+          width: min(360px, calc(100% - 38px));
+          margin: 0 0 72px 38px;
+        }
+
+        .bio-note {
+          left: -32px;
+          bottom: -54px;
+          width: min(280px, calc(100vw - 48px));
+        }
+
+        .sparkles {
+          left: 0;
+          top: 145px;
+          font-size: 30px;
+        }
+
+        .scroll {
+          position: relative;
+          left: auto;
+          bottom: auto;
+          margin: 0 auto 18px;
+          transform: none;
         }
       }
 
-      @keyframes float {
-        from {
-          transform: translate3d(1.5vw, -1vh, 0) rotate(2deg) scale(1.03);
+      @media (max-width: 520px) {
+        .brand {
+          font-size: 15px;
         }
 
-        to {
-          transform: translate3d(-2vw, 2vh, 0) rotate(-2deg) scale(1);
-        }
-      }
-
-      @keyframes breathe-one {
-        from {
-          transform: translateY(0) rotate(-6deg) scaleX(1);
+        .nav-links a:nth-child(2),
+        .nav-links a:nth-child(3) {
+          display: none;
         }
 
-        to {
-          transform: translateY(-3vh) rotate(-3deg) scaleX(1.04);
-        }
-      }
-
-      @keyframes breathe-two {
-        from {
-          transform: translateY(0) rotate(10deg) scaleX(1.02);
+        h1 {
+          font-size: clamp(58px, 20vw, 92px);
         }
 
-        to {
-          transform: translateY(4vh) rotate(7deg) scaleX(0.98);
-        }
-      }
-
-      @keyframes pulse {
-        from {
-          opacity: 0.45;
-          transform: scale(0.96);
+        .outline-stack {
+          font-size: clamp(50px, 18vw, 82px);
+          top: 78px;
         }
 
-        to {
-          opacity: 0.9;
-          transform: scale(1.08);
+        .headline {
+          min-height: 350px;
         }
-      }
 
-      @media (prefers-reduced-motion: reduce) {
-        .background::before,
-        .background::after,
-        .wave,
-        .spark {
-          animation: none;
+        .contact {
+          top: 205px;
+          font-size: 13px;
         }
       }
     </style>
   </head>
   <body>
-    <main class="background" aria-label="Portfolio background">
-      <div class="wave one"></div>
-      <div class="wave two"></div>
-      <div class="spark cyan"></div>
-      <div class="spark pink"></div>
-      <div class="spark green"></div>
-      <div class="grain"></div>
+    <main class="page" aria-label="Thazin portfolio homepage">
+      <div class="shell">
+        <nav class="nav" aria-label="Main navigation">
+          <a class="brand" href="#">
+            <span class="brand-mark">*</span>
+            <span>Thazin</span>
+          </a>
+          <div class="nav-links">
+            <a href="#about">About me</a>
+            <a href="#resume">Resume</a>
+            <a href="#work">Work</a>
+            <a class="button" href="mailto:hello@example.com">Get in touch</a>
+          </div>
+        </nav>
+
+        <section class="hero">
+          <div class="portrait-card" aria-label="Editorial portrait frame">
+            <p class="bio-note">
+              <strong>I love designing creative, refined digital experiences.</strong>
+              I approach portfolio work through clean structure, bold color, and simple visual systems.
+            </p>
+          </div>
+
+          <div class="headline">
+            <div class="sparkles" aria-hidden="true">
+              <span class="star">*</span>
+              <span class="star">*</span>
+            </div>
+            <h1>Portfolio</h1>
+            <div class="outline-stack" aria-hidden="true">
+              <span>Folio</span>
+              <span>Folio</span>
+              <span>Folio</span>
+            </div>
+            <address class="contact">
+              <div><span>BE:</span> /thazin</div>
+              <div><span>IG:</span> @thazin</div>
+              <div><span>LI:</span> /thazin</div>
+            </address>
+          </div>
+        </section>
+      </div>
+      <div class="scroll">Scroll<br>down</div>
+      <div class="bottom-line" aria-hidden="true"></div>
     </main>
   </body>
 </html>
