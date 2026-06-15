@@ -2,11 +2,23 @@
 
 This project is going to be my portfolio website.
 
-Current design direction:
-- Dark colourful
-- Expandable
-- Creative
-- Neon 
+# Thazin Portfolio
+
+## About Me
+Hi, I'm Thazin. Welcome to my portfolio website.
+
+## Features
+- Home page
+- About Me page
+- Contact page
+- Social media links
+
+## References
+The design and layout of this portfolio were inspired by:
+
+1. https://www.pinterest.com
+2. https://www.awwwards.com
+
 
 ## Strict Rules
 
