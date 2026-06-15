@@ -74,6 +74,30 @@
         text-shadow: 0 0 18px rgba(255, 179, 26, 0.8);
       }
 
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: clamp(18px, 4vw, 52px);
+        color: #dfe7d8;
+      }
+
+      .nav-links a {
+        opacity: 0.86;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+
       @media (max-width: 520px) {
         .brand {
           font-size: 17px;
@@ -84,10 +108,15 @@
   <body>
     <main class="page" aria-label="Social link page">
       <div class="shell">
-        <a class="brand" href="index.html">
-          <span class="brand-mark">*</span>
-          <span>Thazin's Corner</span>
-        </a>
+        <nav class="nav" aria-label="Main navigation">
+          <a class="brand" href="index.html">
+            <span class="brand-mark">*</span>
+            <span>Thazin's Corner</span>
+          </a>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+          </div>
+        </nav>
       </div>
     </main>
   </body>
