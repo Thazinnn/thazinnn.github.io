@@ -84,7 +84,7 @@
         align-items: center;
         gap: 8px;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: 18px;
+        font-size: 24px;
         font-weight: 700;
       }
 
@@ -121,39 +121,37 @@
       .portrait-card {
         position: relative;
         align-self: center;
-        width: min(430px, 100%);
+        width: min(420px, 100%);
         margin-left: 54px;
-        aspect-ratio: 0.9;
-        background:
-          linear-gradient(rgba(12, 24, 54, 0.16), rgba(12, 24, 54, 0.42)),
-          radial-gradient(circle at 56% 24%, rgba(255, 221, 149, 0.48), transparent 13%),
-          radial-gradient(ellipse at 55% 38%, rgba(12, 20, 38, 0.98) 0 16%, transparent 17%),
-          radial-gradient(ellipse at 55% 60%, rgba(8, 17, 34, 0.98) 0 27%, transparent 28%),
-          var(--orange);
+        aspect-ratio: 0.86;
+        overflow: hidden;
+        background: var(--black);
         box-shadow: 24px 26px 0 rgba(0, 0, 0, 0.32);
-        filter: saturate(0.82) contrast(1.05);
       }
 
       .portrait-card::before {
         content: "";
         position: absolute;
         inset: 0;
+        z-index: 1;
         background:
-          linear-gradient(90deg, rgba(255, 188, 95, 0.12), transparent 42%),
-          repeating-linear-gradient(90deg, rgba(7, 16, 36, 0.12) 0 2px, transparent 2px 5px);
-        mix-blend-mode: multiply;
+          linear-gradient(180deg, rgba(16, 27, 58, 0.08), rgba(16, 27, 58, 0.28)),
+          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 4px);
+        pointer-events: none;
+        mix-blend-mode: screen;
       }
 
       .portrait-card::after {
-        content: "";
-        position: absolute;
-        right: 12%;
-        bottom: 3%;
-        width: 46%;
-        height: 58%;
-        border-radius: 48% 48% 0 0;
-        background: linear-gradient(150deg, rgba(7, 16, 36, 0.98), rgba(15, 32, 69, 0.92));
-        box-shadow: -22px -44px 0 -28px rgba(7, 15, 33, 0.96);
+        content: none;
+      }
+
+      .portrait-card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: saturate(0.72) contrast(1.08) brightness(0.86);
       }
 
       .headline {
@@ -167,7 +165,7 @@
         z-index: 2;
         margin: 0;
         font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(72px, 13vw, 178px);
+        font-size: clamp(58px, 10.5vw, 138px);
         line-height: 0.78;
         letter-spacing: 0;
         text-transform: uppercase;
@@ -248,7 +246,7 @@
 
       @media (max-width: 520px) {
         .brand {
-          font-size: 15px;
+          font-size: 17px;
         }
 
         .nav-links a:nth-child(2),
@@ -257,7 +255,7 @@
         }
 
         h1 {
-          font-size: clamp(58px, 20vw, 92px);
+          font-size: clamp(46px, 16vw, 76px);
         }
 
         .outline-stack {
@@ -288,7 +286,9 @@
         </nav>
 
         <section class="hero">
-          <div class="portrait-card" aria-label="Editorial portrait frame"></div>
+          <div class="portrait-card">
+            <img src="assets/night-portrait.png" alt="Night portrait by a parked car">
+          </div>
 
           <div class="headline">
             <div class="sparkles" aria-hidden="true">
