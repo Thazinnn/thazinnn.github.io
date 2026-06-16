@@ -5,13 +5,12 @@ This project is going to be my portfolio website.
 # Thazin Portfolio
 
 ## About Me
-Hi, I'm Thazin. Welcome to my portfolio website.
+Hello, I'm Thazin. I am a student who enjoys learning new things, exploring my interests, trying creative projects and playing volleyball.
 
 ## Features
 - Home page
 - About Me page
 - Contact page
-- Social media links
 
 ## References
 The design and layout of this portfolio were inspired by:
@@ -19,6 +18,18 @@ The design and layout of this portfolio were inspired by:
 1. https://www.pinterest.com
 2. https://www.awwwards.com
 
+##Pages
+Home
+
+Introduces visitors to my portfolio.
+
+##About Me
+
+Provides information about my background and interests.
+
+##Contact
+
+Contains my contact informatio
 
 ## Strict Rules
 
