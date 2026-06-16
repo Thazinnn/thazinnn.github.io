@@ -98,9 +98,60 @@
         color: var(--gold);
       }
 
+      .contact-board {
+        position: relative;
+        min-height: calc(100vh - 96px);
+      }
+
+      .qr-code {
+        position: absolute;
+        display: block;
+        width: clamp(118px, 18vw, 220px);
+        height: auto;
+        filter: drop-shadow(0 0 18px rgba(255, 179, 26, 0.18));
+      }
+
+      .qr-code:nth-child(1) {
+        left: 33%;
+        top: 10%;
+      }
+
+      .qr-code:nth-child(2) {
+        left: 33%;
+        top: 62%;
+      }
+
+      .qr-code:nth-child(3) {
+        left: 70%;
+        top: 31%;
+      }
+
       @media (max-width: 520px) {
         .brand {
           font-size: 17px;
+        }
+
+        .contact-board {
+          min-height: 680px;
+        }
+
+        .qr-code {
+          width: clamp(108px, 35vw, 160px);
+        }
+
+        .qr-code:nth-child(1) {
+          left: 36%;
+          top: 8%;
+        }
+
+        .qr-code:nth-child(2) {
+          left: 36%;
+          top: 58%;
+        }
+
+        .qr-code:nth-child(3) {
+          left: 58%;
+          top: 31%;
         }
       }
     </style>
@@ -117,6 +168,11 @@
             <a href="index.html">Home</a>
           </div>
         </nav>
+        <section class="contact-board" aria-label="Contact QR codes">
+          <img class="qr-code" src="assets/contact-qr-1.png" alt="Contact QR code 1">
+          <img class="qr-code" src="assets/contact-qr-2.png" alt="Contact QR code 2">
+          <img class="qr-code" src="assets/contact-qr-3.png" alt="Contact QR code 3">
+        </section>
       </div>
     </main>
   </body>
