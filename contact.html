@@ -126,6 +126,24 @@
         top: 31%;
       }
 
+      .qr-label {
+        position: absolute;
+        left: calc(33% + clamp(118px, 18vw, 220px) + 18px);
+        top: calc(10% + 72px);
+        color: var(--gold);
+        font-size: clamp(18px, 2.3vw, 30px);
+        font-style: italic;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        text-shadow:
+          0 0 14px rgba(255, 179, 26, 0.75),
+          0 0 28px rgba(255, 75, 184, 0.25);
+      }
+
+      .qr-label:hover {
+        color: #fff2a6;
+      }
+
       @media (max-width: 520px) {
         .brand {
           font-size: 17px;
@@ -153,6 +171,12 @@
           left: 58%;
           top: 31%;
         }
+
+        .qr-label {
+          left: 36%;
+          top: calc(8% + 170px);
+          font-size: 18px;
+        }
       }
     </style>
   </head>
@@ -170,6 +194,7 @@
         </nav>
         <section class="contact-board" aria-label="Contact QR codes">
           <img class="qr-code" src="assets/contact-qr-1.png" alt="Contact QR code 1">
+          <a class="qr-label" href="https://github.com/Thazinnn" aria-label="Open Thazin GitHub profile">@git hub</a>
           <img class="qr-code" src="assets/contact-qr-2.png" alt="Contact QR code 2">
           <img class="qr-code" src="assets/contact-qr-3.png" alt="Contact QR code 3">
         </section>
