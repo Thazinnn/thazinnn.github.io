@@ -18,16 +18,16 @@ The design and layout of this portfolio were inspired by:
 1. https://www.pinterest.com
 2. https://www.awwwards.com
 
-##Pages
-Home
+# Pages
+## Home
 
 Introduces visitors to my portfolio.
 
-##About Me
+## About Me
 
 Provides information about my background and interests.
 
-##Contact
+## Contact
 
 Contains my contact informatio
 
