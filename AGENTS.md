@@ -15,8 +15,8 @@ Hello, I'm Thazin. I am a student who enjoys learning new things, exploring my i
 ## References
 The design and layout of this portfolio were inspired by:
 
-1. https://www.pinterest.com
-2. https://www.awwwards.com
+1. https://forms.gle/Aho2D8VDqWw6Pxyp8
+
 
 # Pages
 ## Home
