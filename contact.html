@@ -128,8 +128,6 @@
 
       .qr-label {
         position: absolute;
-        left: calc(42% + clamp(118px, 18vw, 220px) + 18px);
-        top: calc(10% + 72px);
         color: var(--gold);
         font-size: clamp(18px, 2.3vw, 30px);
         font-style: italic;
@@ -138,6 +136,21 @@
         text-shadow:
           0 0 14px rgba(255, 179, 26, 0.75),
           0 0 28px rgba(255, 75, 184, 0.25);
+      }
+
+      .qr-label--github {
+        left: calc(42% + clamp(118px, 18vw, 220px) + 18px);
+        top: calc(10% + 72px);
+      }
+
+      .qr-label--facebook {
+        left: calc(42% + clamp(118px, 18vw, 220px) + 18px);
+        top: calc(66% + 72px);
+      }
+
+      .qr-label--instagram {
+        left: calc(70% + clamp(118px, 18vw, 220px) + 18px);
+        top: calc(37% + 72px);
       }
 
       .qr-label:hover {
@@ -173,9 +186,22 @@
         }
 
         .qr-label {
+          font-size: 18px;
+        }
+
+        .qr-label--github {
           left: 42%;
           top: calc(8% + 170px);
-          font-size: 18px;
+        }
+
+        .qr-label--facebook {
+          left: 42%;
+          top: calc(62% + 170px);
+        }
+
+        .qr-label--instagram {
+          left: 64%;
+          top: calc(34% + 170px);
         }
       }
     </style>
@@ -194,9 +220,11 @@
         </nav>
         <section class="contact-board" aria-label="Contact QR codes">
           <img class="qr-code" src="assets/contact-qr-1.png" alt="Contact QR code 1">
-          <a class="qr-label" href="https://github.com/Thazinnn" aria-label="Open Thazin GitHub profile">@git hub</a>
+          <a class="qr-label qr-label--github" href="https://github.com/Thazinnn" aria-label="Open Thazin GitHub profile">@git hub</a>
           <img class="qr-code" src="assets/contact-qr-2.png" alt="Contact QR code 2">
+          <a class="qr-label qr-label--facebook" href="https://www.facebook.com/share/19D8NfrsjJ/" aria-label="Open Thazin Facebook profile">@facebook</a>
           <img class="qr-code" src="assets/contact-qr-3.png" alt="Contact QR code 3">
+          <a class="qr-label qr-label--instagram" href="https://www.instagram.com/sammy_w_z?igsh=Ym5xdWRzMDI1b2Fx" aria-label="Open Thazin Instagram profile">@instagram</a>
         </section>
       </div>
     </main>
