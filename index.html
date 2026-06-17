@@ -43,7 +43,7 @@
       .page {
         position: relative;
         min-height: 100vh;
-        overflow: hidden;
+        overflow-x: hidden;
         background: var(--navy);
       }
 
@@ -74,6 +74,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
         gap: 24px;
         font-size: 12px;
         letter-spacing: 0.02em;
@@ -83,6 +84,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        min-width: 0;
         font-family: Georgia, "Times New Roman", serif;
         font-size: 24px;
         font-weight: 700;
@@ -97,6 +99,8 @@
       .nav-links {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
         gap: clamp(18px, 4vw, 52px);
         color: #dfe7d8;
       }
@@ -256,35 +260,103 @@
         }
       }
 
+      @media (max-width: 700px) {
+        .hero {
+          padding-top: 30px;
+        }
+
+        .headline {
+          display: grid;
+          min-height: auto;
+          padding-bottom: 32px;
+        }
+
+        h1 {
+          margin-left: 0;
+          font-size: clamp(50px, 14vw, 82px);
+          line-height: 0.86;
+        }
+
+        .portrait-block {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: min(100%, 430px);
+          margin-top: 24px;
+        }
+
+        .portrait-card {
+          box-shadow: 12px 14px 0 rgba(0, 0, 0, 0.24);
+        }
+
+        .outline-stack {
+          left: auto;
+          right: -4px;
+          top: 68px;
+          font-size: clamp(42px, 12vw, 72px);
+          opacity: 0.62;
+        }
+
+        .sparkles {
+          left: auto;
+          right: 12px;
+          top: 168px;
+          gap: 12px;
+          font-size: 26px;
+        }
+      }
+
       @media (max-width: 520px) {
+        .shell {
+          width: calc(100% - 24px);
+          padding-top: 18px;
+        }
+
+        .nav {
+          gap: 14px;
+        }
+
         .brand {
           font-size: 17px;
         }
 
-        .nav-links a:nth-child(3) {
-          display: none;
+        .nav-links {
+          gap: 14px;
         }
 
         h1 {
-          margin-left: 42px;
           font-size: clamp(48px, 15vw, 74px);
         }
 
         .outline-stack {
           font-size: clamp(44px, 14vw, 68px);
-          left: 46vw;
+          right: -10px;
+          left: auto;
           top: 78px;
         }
 
         .headline {
-          min-height: 430px;
+          min-height: auto;
         }
 
         .portrait-block {
-          top: 46px;
-          width: min(340px, 78vw);
+          width: 100%;
         }
 
+      }
+
+      @media (max-width: 360px) {
+        .brand {
+          font-size: 15px;
+        }
+
+        .nav-links {
+          font-size: 10px;
+        }
+
+        .outline-stack {
+          opacity: 0.45;
+        }
       }
     </style>
   </head>

@@ -33,7 +33,7 @@
       .page {
         position: relative;
         min-height: 100vh;
-        overflow: hidden;
+        overflow-x: hidden;
         background: var(--navy);
       }
 
@@ -64,6 +64,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        min-width: 0;
         font-family: Georgia, "Times New Roman", serif;
         font-size: 24px;
         font-weight: 700;
@@ -78,6 +79,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
         gap: 24px;
         font-size: 12px;
         letter-spacing: 0.02em;
@@ -86,6 +88,8 @@
       .nav-links {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
         gap: clamp(18px, 4vw, 52px);
         color: #dfe7d8;
       }
@@ -99,8 +103,27 @@
       }
 
       @media (max-width: 520px) {
+        .shell {
+          width: calc(100% - 24px);
+          padding-top: 18px;
+        }
+
+        .nav {
+          gap: 14px;
+        }
+
         .brand {
           font-size: 17px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .brand {
+          font-size: 15px;
+        }
+
+        .nav-links {
+          font-size: 10px;
         }
       }
     </style>

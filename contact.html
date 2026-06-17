@@ -33,7 +33,7 @@
       .page {
         position: relative;
         min-height: 100vh;
-        overflow: hidden;
+        overflow-x: hidden;
         background: var(--navy);
       }
 
@@ -64,6 +64,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        min-width: 0;
         font-family: Georgia, "Times New Roman", serif;
         font-size: 24px;
         font-weight: 700;
@@ -78,6 +79,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
         gap: 24px;
         font-size: 12px;
         letter-spacing: 0.02em;
@@ -86,6 +88,8 @@
       .nav-links {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
         gap: clamp(18px, 4vw, 52px);
         color: #dfe7d8;
       }
@@ -188,64 +192,126 @@
         color: #fff2a6;
       }
 
+      @media (max-width: 900px) {
+        .shell {
+          width: min(100% - 28px, 720px);
+          padding-top: 22px;
+        }
+
+        .contact-board {
+          display: grid;
+          grid-template-columns: minmax(120px, 0.72fr) minmax(0, 1fr);
+          align-items: center;
+          gap: 24px 18px;
+          min-height: auto;
+          padding: 42px 0 34px;
+        }
+
+        .contact-photo-frame,
+        .contact-photo-caption,
+        .qr-code,
+        .qr-label,
+        .qr-code:nth-of-type(1),
+        .qr-code:nth-of-type(2),
+        .qr-code:nth-of-type(3),
+        .qr-label--github,
+        .qr-label--facebook,
+        .qr-label--instagram {
+          position: relative;
+          inset: auto;
+          left: auto;
+          right: auto;
+          top: auto;
+        }
+
+        .contact-photo-frame {
+          justify-self: start;
+          grid-row: span 2;
+          width: min(240px, 100%);
+          border-radius: 0 38% 38% 0;
+        }
+
+        .contact-photo-caption {
+          grid-column: 1 / -1;
+          justify-self: center;
+          max-width: 420px;
+          text-align: center;
+        }
+
+        .qr-code {
+          width: clamp(128px, 22vw, 178px);
+          justify-self: end;
+        }
+
+        .qr-label {
+          justify-self: start;
+          font-size: clamp(18px, 3vw, 24px);
+        }
+      }
+
       @media (max-width: 520px) {
+        .shell {
+          width: calc(100% - 24px);
+          padding-top: 18px;
+        }
+
+        .nav {
+          gap: 14px;
+        }
+
         .brand {
           font-size: 17px;
         }
 
         .contact-board {
-          min-height: 680px;
+          grid-template-columns: minmax(0, 1fr);
+          justify-items: center;
+          gap: 14px;
+          min-height: auto;
+          padding: 28px 0 36px;
+        }
+
+        .contact-board {
+          min-height: auto;
         }
 
         .contact-photo-frame {
-          left: -26%;
-          top: 9%;
-          width: clamp(150px, 44vw, 210px);
+          grid-row: auto;
+          width: min(250px, 74vw);
+          justify-self: center;
+          border-radius: 0 36% 36% 0;
         }
 
         .contact-photo-caption {
-          left: 28%;
-          top: 88%;
           max-width: 260px;
           font-size: 18px;
         }
 
         .qr-code {
-          width: clamp(108px, 35vw, 160px);
-        }
-
-        .qr-code:nth-of-type(1) {
-          left: 38%;
-          top: 8%;
-        }
-
-        .qr-code:nth-of-type(2) {
-          left: 38%;
-          top: 62%;
-        }
-
-        .qr-code:nth-of-type(3) {
-          left: 58%;
-          top: 34%;
+          width: clamp(122px, 42vw, 160px);
+          justify-self: center;
+          margin-top: 12px;
         }
 
         .qr-label {
           font-size: 18px;
+          justify-self: center;
+          margin-bottom: 8px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .brand {
+          font-size: 15px;
         }
 
-        .qr-label--github {
-          left: 38%;
-          top: calc(8% + 170px);
+        .nav-links {
+          font-size: 10px;
         }
 
-        .qr-label--facebook {
-          left: 38%;
-          top: calc(62% + 170px);
-        }
-
-        .qr-label--instagram {
-          left: 58%;
-          top: calc(34% + 170px);
+        .contact-photo-caption,
+        .qr-label {
+          font-size: 16px;
         }
       }
     </style>
