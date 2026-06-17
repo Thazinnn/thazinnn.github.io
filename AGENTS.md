@@ -42,6 +42,6 @@ Contains my contact informatio
 - Keep changes focused and avoid unrelated refactors.
 - Before finishing any change, run `git status` and confirm what changed.
 - After completing requested edits, run `git add` for the changed files.
-- Commit the changes with a readable commit message.
+- Commit the changes with a readable commit message and description.
 - Push the commit to `origin main`.
 - Do not skip `git add`, `git commit`, or `git push origin main` unless the user explicitly says to.
