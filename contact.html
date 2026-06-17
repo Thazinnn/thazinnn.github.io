@@ -129,12 +129,13 @@
 
       .contact-photo-caption {
         position: absolute;
-        left: 48%;
-        top: 92%;
+        left: 12%;
+        top: calc(66% + 70px);
+        max-width: 260px;
         margin: 0;
         color: var(--gold);
         font-family: "Comic Sans MS", "Segoe Print", "Bradley Hand ITC", cursive;
-        font-size: clamp(18px, 2.3vw, 30px);
+        font-size: clamp(15px, 1.7vw, 22px);
         font-style: italic;
         font-weight: 800;
         letter-spacing: 0.02em;
@@ -200,7 +201,7 @@
 
         .contact-board {
           display: grid;
-          grid-template-columns: minmax(120px, 0.72fr) minmax(0, 1fr);
+          grid-template-columns: minmax(0, 0.9fr) minmax(128px, auto) minmax(0, 1fr);
           align-items: center;
           gap: 24px 18px;
           min-height: auto;
@@ -226,26 +227,39 @@
 
         .contact-photo-frame {
           justify-self: start;
+          grid-column: 1 / 2;
           grid-row: span 2;
           width: min(240px, 100%);
           border-radius: 0 38% 38% 0;
         }
 
         .contact-photo-caption {
-          grid-column: 1 / -1;
-          justify-self: center;
-          max-width: 420px;
-          text-align: center;
+          grid-column: 1 / 2;
+          grid-row: 4 / 5;
+          justify-self: end;
+          max-width: 230px;
+          text-align: right;
+          font-size: clamp(16px, 2.4vw, 20px);
         }
 
         .qr-code {
           width: clamp(128px, 22vw, 178px);
-          justify-self: end;
+          grid-column: 2 / 3;
+          justify-self: center;
         }
 
         .qr-label {
+          grid-column: 3 / 4;
           justify-self: start;
           font-size: clamp(18px, 3vw, 24px);
+        }
+
+        .qr-code:nth-of-type(2) {
+          grid-row: 4 / 5;
+        }
+
+        .qr-label--facebook {
+          grid-row: 4 / 5;
         }
       }
 
@@ -277,23 +291,31 @@
 
         .contact-photo-frame {
           grid-row: auto;
+          grid-column: 1 / 2;
           width: min(250px, 74vw);
           justify-self: center;
           border-radius: 0 36% 36% 0;
         }
 
         .contact-photo-caption {
+          grid-column: 1 / 2;
+          grid-row: auto;
           max-width: 260px;
           font-size: 18px;
+          text-align: center;
         }
 
         .qr-code {
+          grid-column: 1 / 2;
+          grid-row: auto;
           width: clamp(122px, 42vw, 160px);
           justify-self: center;
           margin-top: 12px;
         }
 
         .qr-label {
+          grid-column: 1 / 2;
+          grid-row: auto;
           font-size: 18px;
           justify-self: center;
           margin-bottom: 8px;

@@ -175,32 +175,6 @@
         object-position: 50% 42%;
       }
 
-      .pill {
-        position: absolute;
-        z-index: 3;
-        display: grid;
-        place-items: center;
-        min-width: 220px;
-        min-height: 58px;
-        padding: 14px 28px;
-        border-radius: 999px;
-        background: var(--gold);
-        color: #4a2c00;
-        font-size: clamp(15px, 1.5vw, 19px);
-        font-weight: 800;
-        box-shadow: 0 8px 0 rgba(171, 114, 0, 0.18);
-      }
-
-      .pill.date {
-        left: 2%;
-        top: 34%;
-      }
-
-      .pill.country {
-        right: 0;
-        top: 76%;
-      }
-
       @media (max-width: 820px) {
         .shell {
           width: min(100% - 28px, 680px);
@@ -216,14 +190,6 @@
 
         .visual {
           min-height: 360px;
-        }
-
-        .pill.date {
-          left: 0;
-        }
-
-        .pill.country {
-          right: 0;
         }
       }
 
@@ -278,43 +244,11 @@
           transform: none;
         }
 
-        .pill {
-          min-width: 170px;
-          min-height: 48px;
-          padding: 12px 20px;
-          font-size: 15px;
-        }
-
-        .pill.date {
-          left: 0;
-          top: 12%;
-          justify-self: start;
-        }
-
-        .pill.country {
-          right: 0;
-          top: 72%;
-          justify-self: end;
-        }
       }
 
       @media (max-width: 420px) {
         .visual {
           gap: 12px;
-        }
-
-        .pill {
-          position: relative;
-          inset: auto;
-          width: fit-content;
-          min-width: 150px;
-          box-shadow: 0 6px 0 rgba(171, 114, 0, 0.18);
-        }
-
-        .pill.date,
-        .pill.country {
-          inset: auto;
-          justify-self: center;
         }
       }
 
@@ -355,8 +289,6 @@
             <div class="shape">
               <img src="assets/about-portrait.png" alt="">
             </div>
-            <div class="pill date">10th August 2007</div>
-            <div class="pill country">Myanmar</div>
           </div>
         </section>
       </div>
