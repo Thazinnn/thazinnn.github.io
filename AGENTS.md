@@ -31,6 +31,10 @@ Provides information about my background and interests.
 
 Contains my contact informatio
 
+1. Git hub acc
+2. Facebook acc
+3. Instagram acc
+
 ## Strict Rules
 
 - Always follow the portfolio direction above when making design or content changes.
