@@ -720,6 +720,415 @@
           font-size: 14px;
         }
       }
+
+      /* Reference-inspired home composition */
+      :root {
+        --navy: #030b14;
+        --navy-dark: #01060c;
+        --cream: #f2eadc;
+        --muted: #aaaeb2;
+        --gold: #f3ad43;
+      }
+
+      html,
+      body,
+      .page {
+        background: var(--navy-dark);
+      }
+
+      .page {
+        background:
+          radial-gradient(circle at 76% 24%, rgba(28, 45, 57, 0.28), transparent 35rem),
+          linear-gradient(135deg, #02070d 0%, #06111d 58%, #020810 100%);
+      }
+
+      .page::before {
+        background:
+          radial-gradient(circle at 20% 16%, rgba(243, 173, 67, 0.045), transparent 22rem),
+          radial-gradient(circle at 84% 72%, rgba(59, 93, 115, 0.1), transparent 28rem);
+        opacity: 1;
+      }
+
+      .shell {
+        width: min(1320px, calc(100% - 64px));
+        padding: 22px 0 18px;
+      }
+
+      .nav {
+        font-size: 16px;
+      }
+
+      .brand {
+        gap: 12px;
+        font-size: 30px;
+      }
+
+      .brand-mark {
+        font-size: 26px;
+      }
+
+      .nav-links a {
+        position: relative;
+        padding: 8px 4px 13px;
+      }
+
+      .nav-links a[aria-current="page"] {
+        color: var(--gold);
+        opacity: 1;
+      }
+
+      .nav-links a[aria-current="page"]::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        background: var(--gold);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
+        align-items: center;
+        min-height: clamp(350px, 43vh, 470px);
+        padding: 10px clamp(18px, 4vw, 62px) 4px;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+        padding-bottom: 8px;
+      }
+
+      .hero h1 {
+        position: static;
+        margin: 0;
+        color: var(--cream);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(72px, 8.4vw, 124px);
+        font-weight: 400;
+        line-height: 0.82;
+        letter-spacing: -0.045em;
+      }
+
+      .hero-script {
+        margin: 6px 0 18px;
+        color: var(--gold);
+        font-family: "Segoe Print", "Bradley Hand ITC", "Comic Sans MS", cursive;
+        font-size: clamp(24px, 3vw, 40px);
+        font-style: italic;
+        line-height: 1.1;
+        transform: rotate(-2deg);
+        transform-origin: left center;
+      }
+
+      .hero-intro {
+        max-width: 470px;
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(15px, 1.55vw, 20px);
+        line-height: 1.48;
+      }
+
+      .explore-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 34px;
+        min-width: 220px;
+        margin-top: 24px;
+        padding: 13px 20px;
+        border: 1px solid rgba(243, 173, 67, 0.9);
+        border-radius: 12px;
+        color: var(--gold);
+        font-size: 17px;
+        transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+      }
+
+      .explore-button:hover,
+      .explore-button:focus-visible {
+        color: var(--navy-dark);
+        background: var(--gold);
+        transform: translateY(-2px);
+      }
+
+      .explore-arrow {
+        position: relative;
+        width: 19px;
+        height: 10px;
+      }
+
+      .explore-arrow::before {
+        content: "";
+        position: absolute;
+        top: 4px;
+        right: 0;
+        width: 17px;
+        height: 1px;
+        background: currentColor;
+      }
+
+      .explore-arrow::after {
+        content: "";
+        position: absolute;
+        top: 1px;
+        right: 0;
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid currentColor;
+        border-right: 1px solid currentColor;
+        transform: rotate(45deg);
+      }
+
+      .hero-photo {
+        position: relative;
+        align-self: center;
+        width: calc(100% + 14px);
+        height: clamp(310px, 40vh, 440px);
+        min-height: 0;
+        margin: 0 -14px 0 -70px;
+        overflow: hidden;
+        clip-path: polygon(12% 5%, 30% 1%, 48% 5%, 66% 2%, 83% 7%, 96% 15%, 92% 30%, 99% 46%, 94% 61%, 98% 78%, 88% 91%, 69% 95%, 49% 92%, 31% 98%, 13% 91%, 5% 76%, 9% 57%, 1% 42%, 8% 26%);
+        -webkit-mask-image:
+          linear-gradient(to right, transparent 0%, #000 12%, #000 90%, transparent 100%),
+          linear-gradient(to bottom, transparent 0%, #000 9%, #000 91%, transparent 100%);
+        -webkit-mask-composite: source-in;
+        mask-image:
+          linear-gradient(to right, transparent 0%, #000 12%, #000 90%, transparent 100%),
+          linear-gradient(to bottom, transparent 0%, #000 9%, #000 91%, transparent 100%);
+        mask-composite: intersect;
+      }
+
+      .hero-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, var(--navy-dark) 0%, transparent 24%, transparent 75%, rgba(2, 8, 16, 0.34) 100%);
+        pointer-events: none;
+      }
+
+      .hero-photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 55% 50%;
+        filter: saturate(0.72) contrast(1.1) brightness(0.74);
+      }
+
+      .connect {
+        padding: 16px clamp(32px, 5vw, 66px) 14px;
+        border-color: rgba(191, 203, 210, 0.19);
+        border-radius: 28px;
+        background:
+          radial-gradient(circle at 50% 0, rgba(243, 173, 67, 0.07), transparent 18rem),
+          linear-gradient(135deg, rgba(14, 26, 38, 0.82), rgba(5, 14, 25, 0.86));
+      }
+
+      .connect-heading {
+        margin-bottom: 14px;
+      }
+
+      .connect-title {
+        font-size: clamp(36px, 4.1vw, 52px);
+      }
+
+      .connect-title span {
+        font-family: "Segoe Print", "Bradley Hand ITC", "Comic Sans MS", cursive;
+      }
+
+      .qr-link {
+        width: clamp(136px, 17vh, 188px);
+      }
+
+      .connect-footer {
+        font-family: "Segoe Print", "Bradley Hand ITC", "Comic Sans MS", cursive;
+      }
+
+      @media (min-width: 701px) and (max-height: 760px) {
+        .shell {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+
+        .brand {
+          font-size: 24px;
+        }
+
+        .nav {
+          font-size: 13px;
+        }
+
+        .hero {
+          min-height: 290px;
+          padding-top: 2px;
+        }
+
+        .hero h1 {
+          font-size: clamp(62px, 7.2vw, 94px);
+        }
+
+        .hero-script {
+          margin-bottom: 10px;
+          font-size: clamp(20px, 2.5vw, 30px);
+        }
+
+        .hero-intro {
+          font-size: 14px;
+          line-height: 1.35;
+        }
+
+        .explore-button {
+          min-width: 190px;
+          margin-top: 13px;
+          padding: 9px 16px;
+          font-size: 14px;
+        }
+
+        .hero-photo {
+          height: 270px;
+          min-height: 0;
+        }
+
+        .connect {
+          padding-top: 9px;
+          padding-bottom: 8px;
+        }
+
+        .connect-heading {
+          margin-bottom: 7px;
+        }
+
+        .connect-title {
+          font-size: 30px;
+        }
+
+        .qr-link {
+          width: 112px;
+        }
+
+        .connect-footer {
+          margin-top: 6px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .shell {
+          width: min(100% - 32px, 760px);
+        }
+
+        .brand {
+          font-size: 22px;
+        }
+
+        .nav {
+          font-size: 13px;
+        }
+
+        .hero {
+          grid-template-columns: minmax(0, 1fr) minmax(330px, 0.9fr);
+          padding-right: 0;
+          padding-left: 8px;
+        }
+
+        .hero-photo {
+          margin-left: -56px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .shell {
+          width: calc(100% - 24px);
+          padding-top: 16px;
+          padding-bottom: 30px;
+        }
+
+        .nav-links {
+          flex-wrap: nowrap;
+          gap: 10px;
+          font-size: 11px;
+        }
+
+        .nav {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+
+        .nav-links {
+          width: 100%;
+          justify-content: flex-end;
+        }
+
+        .brand {
+          flex: 0 0 auto;
+          gap: 7px;
+          font-size: 19px;
+        }
+
+        .brand-mark {
+          font-size: 18px;
+        }
+
+        .nav-links a {
+          padding-bottom: 8px;
+        }
+
+        .hero {
+          display: grid;
+          grid-template-columns: 1fr;
+          min-height: auto;
+          padding: 44px 4px 30px;
+          gap: 18px;
+        }
+
+        .hero-copy {
+          min-width: 0;
+        }
+
+        .hero h1 {
+          font-size: clamp(48px, 15.8vw, 68px);
+          letter-spacing: -0.055em;
+        }
+
+        .hero-script {
+          margin-top: 10px;
+          font-size: clamp(21px, 6.5vw, 28px);
+        }
+
+        .hero-intro {
+          max-width: 34rem;
+          font-size: 15px;
+        }
+
+        .explore-button {
+          min-width: 195px;
+        }
+
+        .hero-photo {
+          width: 100%;
+          height: auto;
+          min-height: 260px;
+          margin: -20px 0 0;
+          aspect-ratio: 1.45;
+        }
+
+        .connect {
+          padding: 26px 20px 24px;
+        }
+
+        .connect-heading {
+          margin-bottom: 26px;
+        }
+
+        .qr-link {
+          width: min(190px, 68vw);
+        }
+
+        .connect-footer {
+          margin-top: 24px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -731,30 +1140,25 @@
             <span>Thazin's Corner</span>
           </a>
           <div class="nav-links">
+            <a href="./" aria-current="page">Home</a>
             <a href="about/">About me</a>
             <a href="contact/">Contact</a>
           </div>
         </nav>
 
         <section class="hero">
-          <div class="headline">
-            <div class="sparkles" aria-hidden="true">
-              <span class="star">*</span>
-              <span class="star">*</span>
-            </div>
+          <div class="hero-copy">
             <h1>Portfolio</h1>
-            <div class="portrait-block">
-              <div class="portrait-card">
-                <img src="assets/night-portrait.png" alt="Night portrait by a parked car">
-              </div>
-              <p class="welcome-note">Welcome to my portfolio!! Thank you for visiting and being part of my journey&lt;3</p>
-            </div>
-            <div class="outline-stack" aria-hidden="true">
-              <span>Folio</span>
-              <span>Folio</span>
-              <span>Folio</span>
-            </div>
+            <p class="hero-script">Welcome to my world!</p>
+            <p class="hero-intro">I'm Thazin — a passionate learner and creator.<br>This is where I share my projects, ideas,<br>and everything I'm building along the way.</p>
+            <a class="explore-button" href="about/">
+              <span>Explore More</span>
+              <span class="explore-arrow" aria-hidden="true"></span>
+            </a>
           </div>
+          <figure class="hero-photo">
+            <img src="assets/night-portrait.png" alt="Thazin standing beside a car at night">
+          </figure>
         </section>
 
         <section class="connect" aria-labelledby="connect-title">
