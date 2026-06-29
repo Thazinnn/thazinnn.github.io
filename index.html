@@ -831,56 +831,6 @@
         line-height: 1.48;
       }
 
-      .explore-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 34px;
-        min-width: 220px;
-        margin-top: 24px;
-        padding: 13px 20px;
-        border: 1px solid rgba(243, 173, 67, 0.9);
-        border-radius: 12px;
-        color: var(--gold);
-        font-size: 17px;
-        transition: color 160ms ease, background 160ms ease, transform 160ms ease;
-      }
-
-      .explore-button:hover,
-      .explore-button:focus-visible {
-        color: var(--navy-dark);
-        background: var(--gold);
-        transform: translateY(-2px);
-      }
-
-      .explore-arrow {
-        position: relative;
-        width: 19px;
-        height: 10px;
-      }
-
-      .explore-arrow::before {
-        content: "";
-        position: absolute;
-        top: 4px;
-        right: 0;
-        width: 17px;
-        height: 1px;
-        background: currentColor;
-      }
-
-      .explore-arrow::after {
-        content: "";
-        position: absolute;
-        top: 1px;
-        right: 0;
-        width: 6px;
-        height: 6px;
-        border-top: 1px solid currentColor;
-        border-right: 1px solid currentColor;
-        transform: rotate(45deg);
-      }
-
       .hero-photo {
         position: relative;
         align-self: center;
@@ -977,13 +927,6 @@
         .hero-intro {
           font-size: 14px;
           line-height: 1.35;
-        }
-
-        .explore-button {
-          min-width: 190px;
-          margin-top: 13px;
-          padding: 9px 16px;
-          font-size: 14px;
         }
 
         .hero-photo {
@@ -1101,10 +1044,6 @@
           font-size: 15px;
         }
 
-        .explore-button {
-          min-width: 195px;
-        }
-
         .hero-photo {
           width: 100%;
           height: auto;
@@ -1142,7 +1081,6 @@
           <div class="nav-links">
             <a href="./" aria-current="page">Home</a>
             <a href="about/">About me</a>
-            <a href="contact/">Contact</a>
           </div>
         </nav>
 
@@ -1151,10 +1089,6 @@
             <h1>Portfolio</h1>
             <p class="hero-script">Welcome to my world!</p>
             <p class="hero-intro">I'm Thazin — a passionate learner and creator.<br>This is where I share my projects, ideas,<br>and everything I'm building along the way.</p>
-            <a class="explore-button" href="about/">
-              <span>Explore More</span>
-              <span class="explore-arrow" aria-hidden="true"></span>
-            </a>
           </div>
           <figure class="hero-photo">
             <img src="assets/night-portrait.png" alt="Thazin standing beside a car at night">
