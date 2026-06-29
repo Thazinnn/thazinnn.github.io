@@ -994,13 +994,16 @@
         }
 
         .nav {
-          flex-wrap: wrap;
-          gap: 10px;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 4px;
         }
 
         .nav-links {
-          width: 100%;
-          justify-content: flex-end;
+          width: auto;
+          align-self: flex-start;
+          justify-content: flex-start;
+          gap: 18px;
         }
 
         .brand {
@@ -1014,6 +1017,9 @@
         }
 
         .nav-links a {
+          display: inline-flex;
+          align-items: center;
+          min-height: 40px;
           padding-bottom: 8px;
         }
 
@@ -1030,7 +1036,7 @@
         }
 
         .hero h1 {
-          font-size: clamp(48px, 15.8vw, 68px);
+          font-size: clamp(42px, 14.2vw, 62px);
           letter-spacing: -0.055em;
         }
 
@@ -1042,6 +1048,7 @@
         .hero-intro {
           max-width: 34rem;
           font-size: 15px;
+          overflow-wrap: anywhere;
         }
 
         .hero-photo {
@@ -1066,6 +1073,71 @@
 
         .connect-footer {
           margin-top: 24px;
+        }
+      }
+
+      @media (min-width: 540px) and (max-width: 700px) and (orientation: landscape) {
+        .nav {
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .nav-links {
+          margin-left: auto;
+        }
+
+        .hero {
+          grid-template-columns: minmax(0, 1fr) minmax(250px, 0.9fr);
+          align-items: center;
+          gap: 0;
+          padding-top: 18px;
+          padding-bottom: 20px;
+        }
+
+        .hero h1 {
+          font-size: clamp(44px, 7.5vw, 54px);
+        }
+
+        .hero-script {
+          font-size: clamp(20px, 3.6vw, 25px);
+        }
+
+        .hero-intro {
+          font-size: 13px;
+        }
+
+        .hero-photo {
+          height: 230px;
+          min-height: 0;
+          margin: 0 0 0 -28px;
+          aspect-ratio: auto;
+        }
+
+        .social-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 18px;
+        }
+
+        .connect {
+          padding: 18px 18px 16px;
+        }
+
+        .connect-heading {
+          margin-bottom: 16px;
+        }
+
+        .qr-link {
+          width: min(128px, 19vw);
+        }
+
+        .social-name {
+          gap: 6px;
+          font-size: 12px;
+        }
+
+        .social-name-icon {
+          width: 28px;
+          height: 28px;
         }
       }
     </style>
